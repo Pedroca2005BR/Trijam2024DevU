@@ -6,10 +6,11 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D characterController;
+    //public Buffs Buffs;
 
     public float runSpeed = 40f;
     float horizontalMove = 0f;
-    bool isJumping = false;
+    public bool isJumping = false;
 
 
     // Teleport needs
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         // Teleport needs
         if (isDisabled) return;
         teleportTimer -= Time.deltaTime;
@@ -71,4 +72,11 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         isDisabled = false;
     }
+
+    public void SetMoveSpeed(float newSpeed)
+    {
+        runSpeed += newSpeed;
+
+    }
+    
 }

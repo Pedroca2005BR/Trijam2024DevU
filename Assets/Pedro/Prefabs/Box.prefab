@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 725316340601875405}
   - component: {fileID: 3353227535758018360}
   - component: {fileID: 2770817833644010596}
+  - component: {fileID: 1324781620166864745}
   m_Layer: 0
   m_Name: WeakPoint
   m_TagString: WeakPoint
@@ -90,6 +91,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a11e65b6d38154c9699d6cb30786aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Buffs: {fileID: 0}
+--- !u!114 &1324781620166864745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308917248600178645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a019492d9c8263e45b17aa20c2b5f8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMovement: {fileID: 0}
 --- !u!1 &5003379851649926447
 GameObject:
   m_ObjectHideFlags: 0
