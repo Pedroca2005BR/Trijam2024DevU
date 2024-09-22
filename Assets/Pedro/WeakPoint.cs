@@ -5,11 +5,11 @@ using UnityEngine;
 public class WeakPoint : MonoBehaviour
 {
     public Buffs Buffs;
-    public PlayerMovement PlayerMovement;
+    //public PlayerMovement PlayerMovement;
     private void Start()
     {
         Buffs = GameObject.FindObjectOfType<Buffs>();
-        PlayerMovement = GameObject.FindObjectOfType<PlayerMovement>();
+        //PlayerMovement = GameObject.FindObjectOfType<PlayerMovement>();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

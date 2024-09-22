@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Stopwatch : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Stopwatch : MonoBehaviour
     private int _minutes;
     private int _seconds;
 
+    [Header("Event To Activate")]
+    [SerializeField] UnityEvent unityEvent;
 
     private void Start()
     {
@@ -50,6 +53,12 @@ public class Stopwatch : MonoBehaviour
         if (_hasLimit && _currentTime <= _stopTime)
         {
             _currentTime = _stopTime;
+
+            //Invoca o evento
+            if (unityEvent != null)
+            {
+                unityEvent.Invoke();
+            }
         }
 
         SetTimerText();
@@ -61,6 +70,12 @@ public class Stopwatch : MonoBehaviour
         if (_hasLimit && _currentTime >= _stopTime)
         {
             _currentTime = _stopTime;
+
+            //Invoca o evento
+            if (unityEvent != null)
+            {
+                unityEvent.Invoke();
+            }
         }
 
         SetTimerText();

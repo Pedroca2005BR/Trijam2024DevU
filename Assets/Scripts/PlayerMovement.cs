@@ -6,7 +6,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D characterController;
-    public Buffs Buffs;
+    //public Buffs Buffs;
 
     public float runSpeed = 40f;
     float horizontalMove = 0f;
