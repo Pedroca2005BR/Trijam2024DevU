@@ -24,7 +24,8 @@ public class Buffs : MonoBehaviour
             Debug.Log("Diminuindo Velocidade");
             PlayerMovement.SetMoveSpeed(-100);
             Countdown(tempo);
-            
+            PlayerMovement.SetMoveSpeed(100);
+
 
         }
 
@@ -34,6 +35,7 @@ public class Buffs : MonoBehaviour
             Debug.Log("Velocidade Aumentada");
             PlayerMovement.SetMoveSpeed(100);
             Countdown(tempo);
+            PlayerMovement.SetMoveSpeed(-100);
         }
 
         if (op == 2)
@@ -65,19 +67,7 @@ public class Buffs : MonoBehaviour
 
 
     }
-    void Resetar()
-    {
-        if (op == 0){
-            //volta velocidade ao normal
-            PlayerMovement.SetMoveSpeed(100);
-        }
 
-        if (op == 1)
-        {
-            //volta velocidade ao normal
-            PlayerMovement.SetMoveSpeed(-100);
-        }
-    }
 
     IEnumerator Countdown(int seconds)
     {
@@ -87,7 +77,6 @@ public class Buffs : MonoBehaviour
             yield return new WaitForSeconds(1);
             counter--;
         }
-        Resetar();
     }
 
 
