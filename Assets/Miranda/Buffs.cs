@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+//using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Buffs : MonoBehaviour
 {
@@ -20,8 +20,8 @@ public class Buffs : MonoBehaviour
 
     public void buffativar() {
         
-        op = Random.Range(0, 2);
-        //op = 0;
+        op = Random.Range(0, 5);
+        //op = 2;
         
         if (op == 0)
         {
@@ -46,9 +46,9 @@ public class Buffs : MonoBehaviour
         {
             //Pulo Automatico
             Debug.Log("Canguru Mode");
-            
-                playerMovement.isJumping = true;
-                //Countdown(2);
+
+            playerMovement.SetLandEvent();
+                
             
         }
 
@@ -56,6 +56,8 @@ public class Buffs : MonoBehaviour
         {
             //Pular mais Alto
             Debug.Log("Pulo mais alto");
+
+            playerMovement.ChangeJumpForce(1100);
            
             //Countdown(2);
         }
@@ -64,6 +66,7 @@ public class Buffs : MonoBehaviour
         {
             //Inverter Controles
             Debug.Log("Inverter controles");
+            playerMovement.SetSpeedOpposite();
 
             //Countdown(2);
         }
@@ -93,8 +96,11 @@ public class Buffs : MonoBehaviour
         }
         //Debug.Log("saiu while");
         if (isfaster == 0) playerMovement.SetMoveSpeedFast(2);
-        if (isfaster == 1) playerMovement.SetMoveSpeedSlow(2);
-        
+        else if (isfaster == 1) playerMovement.SetMoveSpeedSlow(2);
+        else if (isfaster == 2) playerMovement.SetLandEvent();
+        else if (isfaster == 3) playerMovement.ChangeJumpForce(800);
+        else if (isfaster == 4) playerMovement.SetSpeedOpposite();
+
     }
   
 

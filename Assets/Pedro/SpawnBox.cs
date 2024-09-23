@@ -6,6 +6,7 @@ public class SpawnBox : MonoBehaviour
 {
     [SerializeField] List<Transform> locations;
     [SerializeField] GameObject boxPrefab;
+    [SerializeField] ScoreManager scoreManager;
     int lastSpawn;
 
 
@@ -32,6 +33,9 @@ public class SpawnBox : MonoBehaviour
     public void RespawnBox()
     {
         int random;
+
+        scoreManager.UpdateScore(this, 1);
+        PlayerPrefs.SetInt("Pontuacao", PlayerPrefs.GetInt("Pontuacao", 0) + 1);
 
         do
         {

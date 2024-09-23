@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Pedro/PedroScene.unity
     guid: 77779554ba63f074aa94630f529aa5ca
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 3ceb71ee130ea6c48b2cd1dc6b8ee486
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 000d5bf8dce6b184e9c9ac55704ebe89
   m_configObjects: {}

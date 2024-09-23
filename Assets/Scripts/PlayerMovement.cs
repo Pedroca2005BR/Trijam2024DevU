@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+//using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerMovement : MonoBehaviour
 {
+    bool reverseUnityEvent = false;
+
+
     public CharacterController2D characterController;
+    public Animator animator;
     //public Buffs Buffs;
 
     public float runSpeed = 40f;
@@ -31,12 +35,16 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
+
         if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
         }
 
-        
+        animator.SetFloat("Speed", horizontalMove);
+        animator.SetBool("isJumping", isJumping);
+
+
     }
 
     private void FixedUpdate()
@@ -51,7 +59,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void HitGround()
     {
-        isJumping = false;
+        if (reverseUnityEvent)
+        {
+            isJumping = true;
+        }
+        else isJumping = false;
+    }
+
+    public void ChangeJumpForce(float force)
+    {
+        characterController.ChangeJumpForce(force);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -88,6 +105,16 @@ public class PlayerMovement : MonoBehaviour
     {
         runSpeed = runSpeed/newSpeed;
 
+    }
+
+    public void SetSpeedOpposite()
+    {
+        runSpeed *= -1;
+    }
+
+    public void SetLandEvent()
+    {
+        reverseUnityEvent = !reverseUnityEvent;
     }
     
 }
