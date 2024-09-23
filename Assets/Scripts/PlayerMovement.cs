@@ -9,8 +9,10 @@ public class PlayerMovement : MonoBehaviour
     //public Buffs Buffs;
 
     public float runSpeed = 40f;
+
     float horizontalMove = 0f;
     public bool isJumping = false;
+   
 
 
     // Teleport needs
@@ -73,9 +75,14 @@ public class PlayerMovement : MonoBehaviour
         isDisabled = false;
     }
 
-    public void SetMoveSpeed(float newSpeed)
+    public void SetMoveSpeedFast(float newSpeed)
     {
-        runSpeed += newSpeed;
+        runSpeed *= newSpeed;
+
+    }
+    public void SetMoveSpeedSlow(float newSpeed) 
+    {
+        runSpeed = runSpeed/newSpeed;
 
     }
     
