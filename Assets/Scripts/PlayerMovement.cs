@@ -45,9 +45,13 @@ public class PlayerMovement : MonoBehaviour
 
         //Move our character 
         characterController.Move(horizontalMove * Time.fixedDeltaTime, false, isJumping);
+
+
+    }
+
+    public void HitGround()
+    {
         isJumping = false;
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
