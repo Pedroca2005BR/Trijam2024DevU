@@ -404,7 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a019492d9c8263e45b17aa20c2b5f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMovement: {fileID: 2119638917}
+  playerMovement: {fileID: 0}
+  tempo: 5
 --- !u!4 &962457428
 Transform:
   m_ObjectHideFlags: 0
@@ -951,7 +952,6 @@ GameObject:
   - component: {fileID: 2119638919}
   - component: {fileID: 2119638918}
   - component: {fileID: 2119638917}
-  - component: {fileID: 2119638923}
   m_Layer: 6
   m_Name: MainCharacter
   m_TagString: Player
@@ -1137,19 +1137,6 @@ Transform:
   - {fileID: 1398157207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2119638923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119638916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a019492d9c8263e45b17aa20c2b5f8ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerMovement: {fileID: 2119638917}
 --- !u!1001 &7712125343511328165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1206,11 +1193,24 @@ PrefabInstance:
       propertyPath: Buffs
       value: 
       objectReference: {fileID: 962457427}
+    - target: {fileID: 3353227535758018360, guid: ac0ed78720855574c82d385a32acf8db, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813680389339606926, guid: ac0ed78720855574c82d385a32acf8db, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5003379851649926447, guid: ac0ed78720855574c82d385a32acf8db, type: 3}
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8917037243988781886, guid: ac0ed78720855574c82d385a32acf8db, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1324781620166864745, guid: ac0ed78720855574c82d385a32acf8db, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
