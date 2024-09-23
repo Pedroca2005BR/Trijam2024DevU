@@ -1,30 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Buffs : MonoBehaviour
 {
-    public PlayerMovement PlayerMovement;
-    private int numbuff = 5, op = 0, tempo = 10;
+    public PlayerMovement playerMovement;
+    private int numbuff = 5, op = 0;
+    [SerializeField] int tempo = 3;
+    //int isfaster = 0;
+
+
 
     private void Start()
     {
-        PlayerMovement = GameObject.FindObjectOfType<PlayerMovement>();
+        playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
     }
     
 
     public void buffativar() {
         
-        op = Random.Range(0, numbuff);
-        //op = 3;
+        op = Random.Range(0, 2);
+        //op = 0;
         
         if (op == 0)
         {
             //Diminuir velodicade
             Debug.Log("Diminuindo Velocidade");
-            PlayerMovement.SetMoveSpeed(-100);
-            Countdown(tempo);
-            PlayerMovement.SetMoveSpeed(100);
+            playerMovement.SetMoveSpeedSlow(2);
+            
 
 
         }
@@ -33,25 +37,27 @@ public class Buffs : MonoBehaviour
         {
             //Aumentar Velocidade
             Debug.Log("Velocidade Aumentada");
-            PlayerMovement.SetMoveSpeed(100);
-            Countdown(tempo);
-            PlayerMovement.SetMoveSpeed(-100);
+            playerMovement.SetMoveSpeedFast(2);
+            //StartCoroutine(Countdown(1));
+ 
         }
 
         if (op == 2)
         {
             //Pulo Automatico
             Debug.Log("Canguru Mode");
-
-            Countdown(tempo);
+            
+                playerMovement.isJumping = true;
+                //Countdown(2);
+            
         }
 
         if (op == 3)
         {
             //Pular mais Alto
             Debug.Log("Pulo mais alto");
-
-            Countdown(tempo);
+           
+            //Countdown(2);
         }
 
         if (op == 4)
@@ -59,25 +65,38 @@ public class Buffs : MonoBehaviour
             //Inverter Controles
             Debug.Log("Inverter controles");
 
-            Countdown(tempo);
+            //Countdown(2);
         }
 
-
+        StartCoroutine(Countdown(op));
 
 
 
     }
-
-
-    IEnumerator Countdown(int seconds)
+    private void Update()
     {
-        int counter = seconds;
+        
+    }
+
+
+    IEnumerator Countdown(int isfaster)
+    {
+        //Debug.Log("Entrou Countdown");
+        int counter = tempo;
         while (counter > 0)
         {
-            yield return new WaitForSeconds(1);
+            //Debug.Log("while");
+            
             counter--;
+            yield return new WaitForSeconds(1f);
+
         }
+        //Debug.Log("saiu while");
+        if (isfaster == 0) playerMovement.SetMoveSpeedFast(2);
+        if (isfaster == 1) playerMovement.SetMoveSpeedSlow(2);
+        
     }
+  
 
 
 }

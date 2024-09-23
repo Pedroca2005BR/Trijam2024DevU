@@ -6,6 +6,7 @@ public class SpawnBox : MonoBehaviour
 {
     [SerializeField] List<Transform> locations;
     [SerializeField] GameObject boxPrefab;
+    int lastSpawn;
 
 
     #region Singleton Pattern
@@ -30,8 +31,15 @@ public class SpawnBox : MonoBehaviour
 
     public void RespawnBox()
     {
-        int random = Random.Range(0, locations.Count);
+        int random;
+
+        do
+        {
+            random = Random.Range(0, locations.Count);
+        } while (random == lastSpawn);
+
 
         GameObject box = Instantiate(boxPrefab, locations[random].position, Quaternion.identity, transform);
+        lastSpawn = random;
     }
 }
