@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         SetScore(0);
+        PlayerPrefs.SetInt("Pontuacao", 0);
     }
 
     // SetScore can be called when the score changes
@@ -32,7 +33,9 @@ public class ScoreManager : MonoBehaviour
         if (data is int)
         {
             int _amount = (int)data;
-            SetScore(_amount);
+            SetScore(_amount); 
+            PlayerPrefs.SetInt("Pontuacao", PlayerPrefs.GetInt("Pontuacao", 0) + 1);
+
         }
     }
 }

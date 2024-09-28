@@ -35,7 +35,6 @@ public class SpawnBox : MonoBehaviour
         int random;
 
         scoreManager.UpdateScore(this, 1);
-        PlayerPrefs.SetInt("Pontuacao", PlayerPrefs.GetInt("Pontuacao", 0) + 1);
 
         do
         {
